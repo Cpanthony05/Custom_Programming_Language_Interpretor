@@ -44,7 +44,7 @@ Syntax Overview
 
         while / for (Loops)
 
-        block (Scoped execution)
+        block (Scoped execution) { }
 
 Code Example: List Processing
 
