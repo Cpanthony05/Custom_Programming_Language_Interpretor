@@ -51,19 +51,19 @@ Code Example: List Processing
 The following example demonstrates declaring a list, iterating through it with a while loop, and calculating the sum, min, max, and range—all while using a scoped block for the loop body.
 Lean
 
-def ex_list_processing : Com :=
-  "data" :::=l (Tip.List Tip.Int), 
-    LExp.cons 15 (LExp.cons 8 (LExp.cons 23 (LExp.empty Tip.Int))) ;;
-  "sum" :::= Tip.Int, 0 ;;
-  "i" :::= Tip.Int, 0 ;;
-  "count" :::= Tip.Int, AExp.length (LExp.var "data") ;;
-  
-  Com.while ("i" <' "count")
-    { -- Scoped Block
-     "current" :::= Tip.Int, AExp.nth (LExp.var "data") "i" ;;
-     "sum" ::= "sum" +' "current" ;;
-     "i" ::= "i" +' 1
-    }
+    def ex_list_processing : Com :=
+      "data" :::=l (Tip.List Tip.Int), 
+        LExp.cons 15 (LExp.cons 8 (LExp.cons 23 (LExp.empty Tip.Int))) ;;
+      "sum" :::= Tip.Int, 0 ;;
+      "i" :::= Tip.Int, 0 ;;
+      "count" :::= Tip.Int, AExp.length (LExp.var "data") ;;
+      
+      Com.while ("i" <' "count")
+        { -- Scoped Block
+         "current" :::= Tip.Int, AExp.nth (LExp.var "data") "i" ;;
+         "sum" ::= "sum" +' "current" ;;
+         "i" ::= "i" +' 1
+        }
 
 How to Run
 
@@ -75,8 +75,8 @@ How to Run
 
 Lean
 
--- Syntax: eval <fuel> <program> <initial_state>
-#eval eval 1000 ex_list_processing initial_state
+    -- Syntax: eval <fuel> <program> <initial_state>
+    #eval eval 1000 ex_list_processing initial_state
 
 📂 Project Structure
 
